@@ -1,0 +1,22 @@
+/* Exemple pour le fond d'écran de la première section */
+@media (max-width: 640px) {
+    .bg-cover {
+        background-size: contain; /* ajuster l'image pour les petits écrans */
+    }
+}
+
+.bg-cover {
+    background-size: cover;
+    /* autres propriétés de style ici */
+}
+.nav-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Utilisation de Tailwind pour espacement et flexibilité */
+}
+
+.custom-logo-size {
+    width: 300px; /* Ajustez cette valeur selon vos besoins */
+    height: auto; /* Conserver le ratio d'aspect */
+}

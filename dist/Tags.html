@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags</title>
+    <style>
+        .card {
+        transition: opacity 0.5s ease, transform 0.5s ease; /* Transition pour l'opacité et la transformation */
+    }
+
+    .fade-in {
+        opacity: 1;
+        transform: translateY(0); /* Position normale */
+    }
+
+    .fade-out {
+        opacity: 0;
+        transform: translateY(-10px); /* Légère translation vers le haut */
+    }
+    </style>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-[Poppins] bg-no-repeat " style="background-image: url('Rectag.png');">
+    <nav class="fixed top-5 left-0 right-0 mx-auto w-[90%] bg-[#D9D9D9] bg-opacity-50 shadow-md backdrop-blur-0 z-50 rounded-[20px] p-2">
+        <div class="container mx-auto px-1.5 py-1.5 flex items-center">
+            <!-- Flèche pour revenir en arrière -->
+            <div class="mr-4 cursor-pointer" onclick="history.back()">
+                <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a1 1 0 0 1-.707-.293l-7-7a1 1 0 0 1 0-1.414l7-7a1 1 0 0 1 1.414 1.414L5.414 9H17a1 1 0 1 1 0 2H5.414l5.293 5.293A1 1 0 0 1 10 18z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+    
+            <!-- Logo -->
+            <div class="mr-auto"><img src="logo.png" alt="Logo" class="h-8 w-auto"></div>
+            
+            <!-- Menu pour les écrans moyens et grands, centré -->
+            <div class="space-x-8 hidden md:flex justify-center flex-1">
+                <a href="index.html" class="text-black hover:text-gray-700 text-lg ">Home</a>
+                <a href="ask.html" class="text-black hover:text-gray-700 text-lg ">Ask</a>
+                <a href="#" class="text-black hover:text-gray-700 text-lg font-semibold">Tags</a>
+                <a href="users.html" class="text-black hover:text-gray-700 text-lg">Users</a>
+                <a href="account.html" class="text-black hover:text-gray-700 text-lg">Account</a>
+            </div>
+            
+            <!-- Icône de notification -->
+            <div class="md:ml-4 ml-[60%] cursor-pointer">
+                <svg class="w-6 h-6 text-black" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2c3.7857 0 6.8693 3.0048 6.9961 6.7594v3.0045l1.822 3.6441c.3483.6966-.1175 1.5103-.869 1.5862H4.16197c-.7788 0-1.2983-.7805-1.0301-1.4867l1.8221-3.644v-3.0046C5.131 5.134 8.134 2 12 2zM13 21h-2c-1.0544 0-1.9182-.9182-1.9945-1.949L9 19h6c0 1.0544-.8182 1.9182-1.9495 1.9945L13 21z"/>
+                </svg>
+            </div>
+    
+            <!-- Bouton pour Mobile -->
+            <div class="md:hidden flex items-center ml-auto">
+                <button onclick="toggleMenu()" class="text-black focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Menu déroulant pour mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 shadow-md rounded-b-lg p-4 space-y-4">
+            <a href="index.html" class="block text-black hover:text-gray-700 text-lg ">Home</a>
+            <a href="ask.html" class="block text-black hover:text-gray-700 text-lg ">Ask</a>
+            <a href="#" class="block text-black hover:text-gray-700 text-lg font-semibold">Tags</a>
+            <a href="users.html" class="block text-black hover:text-gray-700 text-lg">Users</a>
+            <a href="account.html" class="block text-black hover:text-gray-700 text-lg">Account</a>
+        </div>
+    </nav>
+
+    <div class="mt-14">
+    <!-- Titre aligné à gauche avec la police Bayon -->
+    <h1 class="md:text-4xl text-2xl text-black font-bold mt-16 ml-[47px]" style="font-family: 'Bayon', sans-serif;">TAGS</h1>
+    
+    <!-- Bande colorée avec le paragraphe en police Poppins -->
+    <div class="bg-[#FFCA0883] md:h-[100px] h-[130px] flex mt-6 items-center px-4 w-full">
+        <p class="text-black md:w-[80%] w-[100%] md:text-lg text-sm font-bold ml-20" style="font-family: 'Poppins', sans-serif;">
+            A tag is a keyword or label that categorizes your question with other, similar questions. Using the right tags makes it easier for others to find and answer your question.
+        </p>
+    </div>
+</div>
+
+<div class="flex flex-col sm:flex-row items-center justify-between w-[90%] mx-auto mt-10 mb-10">
+    <!-- Conteneur de recherche et de filtre pour les petits écrans -->
+    <div class="relative w-full max-w-xs flex items-center mb-4 sm:mb-0">
+        <!-- Input de recherche -->
+        <input type="text" placeholder="Search ..." class="bg-gray-400 bg-opacity-50 text-black rounded-[15px] pl-10 pr-4 py-3 placeholder-gray-500 focus:outline-none w-full">
+        <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.5 10.5A6.5 6.5 0 1 1 10 4a6.5 6.5 0 0 1 6.5 6.5z" />
+            </svg>
+        </div>
+
+        <!-- Icône de filtre pour les petits écrans -->
+        <button id="filter-toggle" onclick="toggleFilter()" class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none sm:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Filtre pour les grands écrans et menu déroulant sur mobile -->
+    <div id="filter-section" class="hidden sm:flex items-center space-x-2 mt-4 sm:mt-0">
+        <div class="flex space-x-2 bg-gray-300 bg-opacity-60 rounded-full p-2">
+            <button class="bg-transparent text-white px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button selected-filter" onclick="selectFilter(this)">Interesting</button>
+            <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Bountied</button>
+            <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Week</button>
+            <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Month</button>
+        </div>
+
+        <style>
+            .selected-filter {
+    background-color: black; /* Fond blanc pour le filtre sélectionné */
+    color: white; /* Texte noir pour le filtre sélectionné */
+}
+        </style>
+        <script>
+            // Fonction pour gérer la sélection des filtres
+            
+function selectFilter(selectedButton) {
+    // Récupérer tous les boutons de filtre
+    const filterButtons = document.querySelectorAll('.filter-button');
+
+    // Parcourir tous les boutons et enlever la classe de sélection
+    filterButtons.forEach(button => {
+        button.classList.remove('selected-filter');
+        button.classList.add('bg-transparent'); // Réinitialiser à la couleur par défaut
+        button.classList.remove('text-black'); // Réinitialiser la couleur du texte
+        button.classList.add('text-black'); // Assurer que le texte est noir par défaut
+    });
+
+    // Ajouter la classe de sélection au bouton cliqué
+    selectedButton.classList.add('selected-filter');
+    selectedButton.classList.remove('bg-transparent'); // Changer le fond en noir
+    selectedButton.classList.remove('text-black'); // Enlever le texte noir
+    selectedButton.classList.add('text-white'); // Assurer que le texte est blanc pour le bouton sélectionné
+}
+
+
+
+
+        </script>
+         
+    </div>
+</div>
+
+
+
+
+
+<div class="flex flex-wrap justify-center">
+    <!-- Conteneur de la carte -->
+    <div id="jqueryCard" class="bg-gray-200 bg-opacity-50 rounded-[30px] shadow-lg p-6 w-96 text-center mx-auto mt-0 mb-10">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex-1 text-center">
+                <span class="text-gray-700 font-semibold text-lg px-5 py-1 bg-gray-200 rounded-full">JQUERY</span>
+            </div>
+            <img src="jquery.png" alt="jQuery Logo" class="w-10 h-10 ml-2">
+        </div>
+        <p id="jqueryQuestionText" class="text-gray-600 mb-6 shadow-text font-medium card fade-in">What is the purpose of jQuery?</p>
+        <div class="bg-yellow-200 rounded-full py-2 px-4 flex justify-around items-center text-yellow-600 font-semibold">
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 5 Answers -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <g id="Interface / Check_All_Big"> 
+                            <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        </g> 
+                    </g>
+                </svg>
+                <p class="text-xs">5 Answers</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 0 Votes -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                </svg>
+                <p class="text-xs">0 Votes</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 20 Views -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.0019 17.0941C20.7673 15.5772 21.9924 13.8624 22.5361 13.0302C22.9469 12.4015 22.9469 11.5985 22.5361 10.9698C22.0075 10.1376 20.7673 8.42276 19.0019 6.90595C17.2429 5.39462 14.8525 4 12 4ZM12 12C12 13.1046 11.1046 14 10 14C8.89543 14 8 13.1046 8 12C8 10.8954 8.89543 10 10 10C11.1046 10 12 10.8954 12 12ZM10 12C10 12.553 10.4477 13 11 13C11.5523 13 12 12.553 12 12C12 11.447 11.5523 11 11 11C10.4477 11 10 11.447 10 12Z" fill="#F3BB00"></path>
+                    </g>
+                </svg>
+                <p class="text-xs">20 Views</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 1 Hour Ago -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M12 7V12H9M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <p class="text-xs">1 Hour Ago</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="reactCard" class="bg-gray-200 bg-opacity-50 rounded-[30px] shadow-lg p-6 w-96 text-center mx-auto mt-0 mb-10">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex-1 text-center">
+                <span class="text-gray-700 font-semibold text-lg px-5 py-1 bg-gray-200 rounded-full">REACTJS</span>
+            </div>
+            <img src="react.png" alt="React Logo" class="w-10 h-10 ml-2">
+        </div>
+        <p id="reactQuestionText" class="text-gray-600 mb-6 shadow-text font-medium card fade-in">What are React Hooks?</p>
+        <div class="bg-yellow-200 rounded-full py-2 px-4 flex justify-around items-center text-yellow-600 font-semibold">
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 10 Answers -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <g id="Interface / Check_All_Big"> 
+                            <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        </g> 
+                    </g>
+                </svg>
+                <p class="text-xs">10 Answers</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 2 Votes -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                </svg>
+                <p class="text-xs">2 Votes</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 50 Views -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.0019 17.0941C20.7673 15.5772 21.9924 13.8624 22.5361 13.0302C22.9469 12.4015 22.9469 11.5985 22.5361 10.9698C22.0075 10.1376 20.7673 8.42276 19.0019 6.90595C17.2429 5.39462 14.8525 4 12 4ZM12 12C12 13.1046 11.1046 14 10 14C8.89543 14 8 13.1046 8 12C8 10.8954 8.89543 10 10 10C11.1046 10 12 10.8954 12 12Z" fill="#F3BB00"></path>
+                    </g>
+                </svg>
+                <p class="text-xs">50 Views</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 2 Hours Ago -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M12 7V12H9M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <p class="text-xs">2 Hours Ago</p>
+            </div>
+        </div>
+    </div>
+    <div id="linuxCard" class="bg-gray-200 bg-opacity-50 rounded-[30px] shadow-lg p-6 w-96 text-center mx-auto mt-0 mb-10">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex-1 text-center">
+                <span class="text-gray-700 font-semibold text-lg px-5 py-1 bg-gray-200 rounded-full">LINUX</span>
+            </div>
+            <img src="linux.png" alt="Linux Logo" class="w-10 h-10 ml-2"> <!-- Assurez-vous d'avoir l'image linux.png dans votre projet -->
+        </div>
+        <p id="linuxQuestionText" class="text-gray-600 mb-6 shadow-text font-medium card fade-in">What command is used to change directories?</p>
+        <div class="bg-yellow-200 rounded-full py-2 px-4 flex justify-around items-center text-yellow-600 font-semibold">
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour le nombre de réponses -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <g id="Interface / Check_All_Big"> 
+                            <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        </g> 
+                    </g>
+                </svg>
+                <p class="text-xs">5 Answers</p> <!-- Changez le nombre ici -->
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour le nombre de votes -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                </svg>
+                <p class="text-xs">3 Votes</p> <!-- Changez le nombre ici -->
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour le nombre de vues -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.0019 17.0941C20.7673 15.5772 21.9924 13.8624 22.5361 13.0302C22.9469 12.4015 22.9469 11.5985 22.5361 10.9698C22.0075 10.1376 20.7673 8.42276 19.0019 6.90595C17.2429 5.39462 14.8525 4 12 4ZM12 12C12 13.1046 11.1046 14 10 14C8.89543 14 8 13.1046 8 12C8 10.8954 8.89543 10 10 10C11.1046 10 12 10.8954 12 12Z" fill="#F3BB00"></path>
+                    </g>
+                </svg>
+                <p class="text-xs">100 Views</p> <!-- Changez le nombre ici -->
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour le temps écoulé -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M12 7V12H9M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <p class="text-xs">1 Hour Ago</p> <!-- Changez le temps ici -->
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="pythonCard" class="bg-gray-200 bg-opacity-50 rounded-[30px] shadow-lg p-6 w-96 text-center mx-auto mt-0 mb-10">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex-1 text-center">
+                <span class="text-gray-700 font-semibold text-lg px-5 py-1 bg-gray-200 rounded-full">PYTHON</span>
+            </div>
+            <img src="python.png" alt="Python Logo" class="w-10 h-10 ml-2">
+        </div>
+        <p id="pythonQuestionText" class="text-gray-600 mb-6 shadow-text font-medium card fade-in">Calculate the mean of values in a list grouped by labels</p>    
+        <div class="bg-yellow-200 rounded-full py-2 px-4 flex justify-around items-center text-yellow-600 font-semibold">
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 5 Answers -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <g id="Interface / Check_All_Big"> 
+                            <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        </g> 
+                    </g>
+                </svg>
+                <p class="text-xs">5 Answers</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 0 Votes -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                </svg>
+                <p class="text-xs">0 Votes</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 20 Views -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.0019 17.0941C20.7673 15.5772 21.9924 13.8624 22.5361 13.0302C22.9469 12.4015 22.9469 11.5985 22.5361 10.9698C22.0075 10.1376 20.7673 8.42276 19.0019 6.90595C17.2429 5.39462 14.8525 4 12 4ZM12 12C12 13.1046 11.1046 14 10 14C8.89543 14 8 13.1046 8 12C8 10.8954 8.89543 10 10 10C11.1046 10 12 10.8954 12 12ZM10 12C10 12.553 10.4477 13 11 13C11.5523 13 12 12.553 12 12C12 11.447 11.5523 11 11 11C10.4477 11 10 11.447 10 12Z" fill="#F3BB00"></path>
+                    </g>
+                </svg>
+                <p class="text-xs">20 Views</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 1 Hour Ago -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M12 7V12H9M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <p class="text-xs">1 Hour Ago</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="javascriptCard" class="bg-gray-200 bg-opacity-50 rounded-[30px] shadow-lg p-6 w-96 text-center mx-auto mt-0 mb-10">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex-1 text-center">
+                <span class="text-gray-700 font-semibold text-lg px-5 py-1 bg-gray-200 rounded-full">JAVASCRIPT</span>
+            </div>
+            <img src="javascript.png" alt="JavaScript Logo" class="w-10 h-10 ml-2">
+        </div>
+        <p id="javascriptQuestionText" class="text-gray-600 mb-6 shadow-text font-medium card fade-in">What is the output of console.log(typeof NaN)?</p>
+        <div class="bg-yellow-200 rounded-full py-2 px-4 flex justify-around items-center text-yellow-600 font-semibold">
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 5 Answers -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <g id="Interface / Check_All_Big"> 
+                            <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        </g> 
+                    </g>
+                </svg>
+                <p class="text-xs">5 Answers</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 0 Votes -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                </svg>
+                <p class="text-xs">0 Votes</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 20 Views -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.0019 17.0941C20.7673 15.5772 21.9924 13.8624 22.5361 13.0302C22.9469 12.4015 22.9469 11.5985 22.5361 10.9698C22.0075 10.1376 20.7673 8.42276 19.0019 6.90595C17.2429 5.39462 14.8525 4 12 4ZM12 12C12 13.1046 11.1046 14 10 14C8.89543 14 8 13.1046 8 12C8 10.8954 8.89543 10 10 10C11.1046 10 12 10.8954 12 12ZM10 12C10 12.553 10.4477 13 11 13C11.5523 13 12 12.553 12 12C12 11.447 11.5523 11 11 11C10.4477 11 10 11.447 10 12Z" fill="#F3BB00"></path>
+                    </g>
+                </svg>
+                <p class="text-xs">20 Views</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 1 Hour Ago -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M12 7V12H9M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <p class="text-xs">1 Hour Ago</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="javaCard" class="bg-gray-200 bg-opacity-50 rounded-[30px] shadow-lg p-6 w-96 text-center mx-auto mt-0 mb-10">
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex-1 text-center">
+                <span class="text-gray-700 font-semibold text-lg px-5 py-1 bg-gray-200 rounded-full">JAVA</span>
+            </div>
+            <img src="java.png" alt="Java Logo" class="w-10 h-10 ml-2">
+        </div>
+        <p id="javaQuestionText" class="text-gray-600 mb-6 shadow-text font-medium card fade-in">What is the default value of an int variable in Java?</p>
+        <div class="bg-yellow-200 rounded-full py-2 px-4 flex justify-around items-center text-yellow-600 font-semibold">
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 5 Answers -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <g id="Interface / Check_All_Big"> 
+                            <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                        </g> 
+                    </g>
+                </svg>
+                <p class="text-xs">5 Answers</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 0 Votes -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                </svg>
+                <p class="text-xs">0 Votes</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 20 Views -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.0019 17.0941C20.7673 15.5772 21.9924 13.8624 22.5361 13.0302C22.9469 12.4015 22.9469 11.5985 22.5361 10.9698C22.0075 10.1376 20.7673 8.42276 19.0019 6.90595C17.2429 5.39462 14.8525 4 12 4ZM12 12C12 13.1046 11.1046 14 10 14C8.89543 14 8 13.1046 8 12C8 10.8954 8.89543 10 10 10C11.1046 10 12 10.8954 12 12ZM10 12C10 12.553 10.4477 13 11 13C11.5523 13 12 12.553 12 12C12 11.447 11.5523 11 11 11C10.4477 11 10 11.447 10 12Z" fill="#F3BB00"></path>
+                    </g>
+                </svg>
+                <p class="text-xs">20 Views</p>
+            </div>
+            <div class="text-center flex flex-col items-center">
+                <!-- Icône pour 1 Hour Ago -->
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mb-1">
+                    <path d="M12 7V12H9M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <p class="text-xs">1 Hour Ago</p>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    
+    
+</div>
+
+<div class="flex items-center space-x-2 mt-0 mr-10 justify-end mb-6">
+    <button class="px-3 py-1 bg-black text-white rounded-full">1</button>
+    <button class="px-3 py-1 bg-white text-black rounded-full">2</button>
+    <button class="px-3 py-1 bg-white text-black rounded-full">3</button>
+    <span class="text-gray-400">...</span>
+    <button class="px-3 py-1 bg-white text-black rounded-full">120234</button>
+    <button class="px-6 py-2 bg-black text-white rounded-full">Next</button>
+</div>
+    
+<footer class="bg-black text-center py-6 mt-auto">
+    <p class="text-[#F3BB00] text-lg mb-2">Need help?</p>
+    <a href="mailto:votre-email@example.com" class="text-white text-sm mb-4 inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12.713L.727 5.11C.889 5.042 1.068 5 1.258 5h21.484c.19 0 .369.042.531.11L12 12.713zM0 6.833v11.174c0 .434.351.833.833.833h22.334c.482 0 .833-.399.833-.833V6.833L12 14.713 0 6.833z"/>
+        </svg>
+        support-AskIT@example.com
+    </a>
+    <p class="text-[#F3BB00] text-lg mb-2">Connect with us</p>
+    <div class="flex justify-center space-x-4 mt-2 mb-4">
+        <a href="https://facebook.com" target="_blank" class="text-white">
+            <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-6.92H7.5V12h2.5V9.5c0-2.48 1.52-3.8 3.73-3.8 1.06 0 1.97.08 2.24.11v2.6h-1.54c-1.21 0-1.44.58-1.44 1.42V12h2.9l-.46 2.88H13.5V22c4.56-.93 8-4.96 8-9.8z"/>
+            </svg>
+        </a>
+        <a href="https://x.com" target="_blank" class="text-white">
+            <img src="x.png" alt="X Platform" class="w-6 h-6" />
+        </a>
+        <a href="https://github.com" target="_blank" class="text-white">
+            <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.19 3.35 9.59 8 11.2.58.1.8-.25.8-.56v-2.1c-3.25.7-3.94-1.57-3.94-1.57-.52-1.32-1.28-1.67-1.28-1.67-1.04-.7.08-.68.08-.68 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.6-.3-5.34-1.3-5.34-5.73 0-1.26.47-2.28 1.23-3.08-.13-.3-.54-1.5.12-3.13 0 0 1-.33 3.3 1.25.96-.27 1.98-.4 3-.4s2.04.14 3 .4c2.3-1.58 3.3-1.25 3.3-1.25.66 1.63.25 2.83.12 3.13.76.8 1.23 1.82 1.23 3.08 0 4.44-2.75 5.43-5.37 5.72.42.37.8 1.1.8 2.22v3.28c0 .31.22.67.8.56 4.65-1.61 8-5.99 8-11.19C23.5 5.73 18.27.5 12 .5z"/>
+            </svg>
+        </a>
+    </div>
+</footer>
+    
+<script>
+    // Tableaux de questions pour chaque langage
+    const pythonQuestions = [
+        "Calculate the mean of values in a list grouped by labels",
+        "What is the output of print(type([]))?",
+        "How to reverse a list in Python?",
+        // Ajoutez d'autres questions pour Python ici
+    ];
+
+    const javascriptQuestions = [
+         "Calculate the mean of values in a list grouped by labels",
+        "What is the output of print(type([]))?",
+        "How to reverse a list in Python?",
+        // Ajoutez d'autres questions pour JavaScript ici
+    ];
+
+    const javaQuestions = [
+        "Calculate the mean of values in a list grouped by labels",
+        "What is the output of print(type([]))?",
+        "How to reverse a list in Python?",
+        // Ajoutez d'autres questions pour Java ici
+    ];
+
+    const jqueryQuestions = [
+         "Calculate the mean of values in a list grouped by labels",
+        "What is the output of print(type([]))?",
+        "How to reverse a list in Python?",
+        // Ajoutez d'autres questions pour jQuery ici
+    ];
+
+    const reactQuestions = [
+         "Calculate the mean of values in a list grouped by labels",
+        "What is the output of print(type([]))?",
+        "How to reverse a list in Python?",
+        // Ajoutez d'autres questions pour React ici
+    ];
+
+    const linuxQuestions = [
+         "Calculate the mean of values in a list grouped by labels",
+        "What is the output of print(type([]))?",
+        "How to reverse a list in Python?",
+        // Ajoutez d'autres questions pour Linux ici
+    ];
+
+    let currentPythonIndex = 0;
+    let currentJavascriptIndex = 0;
+    let currentJavaIndex = 0;
+    let currentJqueryIndex = 0; // Index pour jQuery
+    let currentReactIndex = 0;   // Index pour React
+    let currentLinuxIndex = 0;    // Index pour Linux
+
+    function changeQuestion(language) {
+        let questionTextElement;
+        let questions;
+        let currentIndex;
+
+        if (language === 'python') {
+            questionTextElement = document.getElementById("pythonQuestionText");
+            questions = pythonQuestions;
+            currentIndex = currentPythonIndex;
+        } else if (language === 'javascript') {
+            questionTextElement = document.getElementById("javascriptQuestionText");
+            questions = javascriptQuestions;
+            currentIndex = currentJavascriptIndex;
+        } else if (language === 'java') {
+            questionTextElement = document.getElementById("javaQuestionText");
+            questions = javaQuestions;
+            currentIndex = currentJavaIndex;
+        } else if (language === 'jquery') { // Cas pour jQuery
+            questionTextElement = document.getElementById("jqueryQuestionText");
+            questions = jqueryQuestions;
+            currentIndex = currentJqueryIndex;
+        } else if (language === 'react') { // Cas pour React
+            questionTextElement = document.getElementById("reactQuestionText");
+            questions = reactQuestions;
+            currentIndex = currentReactIndex;
+        } else if (language === 'linux') { // Cas pour Linux
+            questionTextElement = document.getElementById("linuxQuestionText");
+            questions = linuxQuestions;
+            currentIndex = currentLinuxIndex;
+        }
+
+        // Appliquer l'effet de disparition
+        questionTextElement.classList.remove("fade-in");
+        questionTextElement.classList.add("fade-out");
+
+        // Attendre la fin de l'animation avant de changer le texte
+        setTimeout(() => {
+            // Changer le texte de la question
+            questionTextElement.textContent = questions[currentIndex];
+
+            // Appliquer l'effet d'apparition
+            questionTextElement.classList.remove("fade-out");
+            questionTextElement.classList.add("fade-in");
+
+            // Mettre à jour l'index de la question
+            if (language === 'python') {
+                currentPythonIndex = (currentPythonIndex + 1) % pythonQuestions.length; // boucle vers la première question
+            } else if (language === 'javascript') {
+                currentJavascriptIndex = (currentJavascriptIndex + 1) % javascriptQuestions.length; // boucle vers la première question
+            } else if (language === 'java') {
+                currentJavaIndex = (currentJavaIndex + 1) % javaQuestions.length; // boucle vers la première question
+            } else if (language === 'jquery') { // Mise à jour de l'index pour jQuery
+                currentJqueryIndex = (currentJqueryIndex + 1) % jqueryQuestions.length; // boucle vers la première question
+            } else if (language === 'react') { // Mise à jour de l'index pour React
+                currentReactIndex = (currentReactIndex + 1) % reactQuestions.length; // boucle vers la première question
+            } else if (language === 'linux') { // Mise à jour de l'index pour Linux
+                currentLinuxIndex = (currentLinuxIndex + 1) % linuxQuestions.length; // boucle vers la première question
+            }
+        }, 500); // Correspond à la durée de l'effet de disparition
+    }
+
+    // Changer les questions toutes les 5 secondes pour chaque langage
+    setInterval(() => changeQuestion('python'), 5000);
+    setInterval(() => changeQuestion('javascript'), 5000);
+    setInterval(() => changeQuestion('java'), 5000);
+    setInterval(() => changeQuestion('jquery'), 5000); // Intervalle pour jQuery
+    setInterval(() => changeQuestion('react'), 5000); // Intervalle pour React
+    setInterval(() => changeQuestion('linux'), 5000); // Intervalle pour Linux
+
+   
+    // Fonction JavaScript pour afficher/masquer les filtres sur mobile
+    function toggleFilter() {
+        const filterSection = document.getElementById("filter-section");
+        filterSection.classList.toggle("hidden");
+    }
+    function toggleMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+</script>
+
+    
+</body>
+</html>

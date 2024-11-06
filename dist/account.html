@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        /* Masquer la barre de défilement pour Chrome et Safari */
+        .scroll-container::-webkit-scrollbar {
+            display: none; /* Masquer la barre de défilement */
+        }
+
+        
+
+    </style>
+</head>
+<body class="font-[Poppins] min-h-screen bg-no-repeat bg-[url('ACC2.png'),_url('ACC1.png')] " >
+    <nav class="fixed top-5 left-0 right-0 mx-auto w-[90%] bg-[#D9D9D9] bg-opacity-50 shadow-md backdrop-blur-0 z-50 rounded-[20px] p-2">
+        <div class="container mx-auto px-1.5 py-1.5 flex items-center">
+            <!-- Flèche pour revenir en arrière -->
+            <div class="mr-4 cursor-pointer" onclick="history.back()">
+                <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a1 1 0 0 1-.707-.293l-7-7a1 1 0 0 1 0-1.414l7-7a1 1 0 0 1 1.414 1.414L5.414 9H17a1 1 0 1 1 0 2H5.414l5.293 5.293A1 1 0 0 1 10 18z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+    
+            <!-- Logo -->
+            <div class="mr-auto"><img src="logo.png" alt="Logo" class="h-8 w-auto"></div>
+            
+            <!-- Menu pour les écrans moyens et grands, centré -->
+            <div class="space-x-8 hidden md:flex justify-center flex-1">
+                <a href="index.html" class="text-black hover:text-gray-700 text-lg">Home</a>
+                <a href="ask.html" class="text-black hover:text-gray-700 text-lg ">Ask</a>
+                <a href="Tags.html" class="text-black hover:text-gray-700 text-lg">Tags</a>
+                <a href="users.html" class="text-black hover:text-gray-700 text-lg">Users</a>
+                <a href="#" class="text-black hover:text-gray-700 text-lg font-semibold">Account</a>
+            </div>
+            
+            <!-- Icône de notification -->
+            <div class="md:ml-4 ml-[60%] cursor-pointer">
+                <svg class="w-6 h-6 text-black" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2c3.7857 0 6.8693 3.0048 6.9961 6.7594v3.0045l1.822 3.6441c.3483.6966-.1175 1.5103-.869 1.5862H4.16197c-.7788 0-1.2983-.7805-1.0301-1.4867l1.8221-3.644v-3.0046C5.131 5.134 8.134 2 12 2zM13 21h-2c-1.0544 0-1.9182-.9182-1.9945-1.949L9 19h6c0 1.0544-.8182 1.9182-1.9495 1.9945L13 21z"/>
+                </svg>
+            </div>
+    
+            <!-- Bouton pour Mobile -->
+            <div class="md:hidden flex items-center ml-auto">
+                <button onclick="toggleMenu()" class="text-black focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Menu déroulant pour mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 shadow-md rounded-b-lg p-4 space-y-4">
+            <a href="index.html" class="block text-black hover:text-gray-700 text-lg">Home</a>
+            <a href="ask.html" class="block text-black hover:text-gray-700 text-lg ">Ask</a>
+            <a href="Tags.html" class="block text-black hover:text-gray-700 text-lg">Tags</a>
+            <a href="users.html" class="block text-black hover:text-gray-700 text-lg">Users</a>
+            <a href="#" class="block text-black hover:text-gray-700 text-lg font-semibold">Account</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-20">
+        <div class="flex md:flex-row gap-8">
+            
+            <div class="flex md:pl-0 pl-[10%]">
+                <div class="md:w-1/3 mt-6 bg-white p-3 rounded-lg shadow-lg shadow-yellow-500">
+                    <div class="flex flex-col items-center">
+                        <!-- Profile Picture -->
+                        <div class="w-24 h-24 bg-yellow-300 rounded-full flex items-center justify-center mb-4">
+                            <span class="text-6xl font-bold text-white">A</span>
+                        </div>
+                        <h2 class="text-lg font-bold">Assia EL MOHADI</h2>
+                        <p class="text-sm text-gray-600">Full Stack Developer</p>
+                        <p class="text-xs text-gray-500 mt-2 flex items-center">
+                            <span class="mr-1">👤</span> Member for 1 year
+                            <span class="mx-1">|</span> Last seen this week
+                        </p>
+                        
+                    </div>
+                    <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <p class="md:text-lg text-sm font-bold">379</p>
+                            <p class="md:text-s text-xs text-gray-600">Questions</p>
+                        </div>
+                        <div>
+                            <p class="md:text-lg text-sm font-bold">234</p>
+                            <p class="md:text-s text-xs text-gray-600">Answers</p>
+                        </div>
+                        <div>
+                            <p class="md:text-lg text-sm font-bold">465</p>
+                            <p class="md:text-s text-xs text-gray-600">Favorites</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex gap-4 justify-center">
+                        <button class="bg-black text-white py-1 px-2 rounded hover:bg-gray-700 hover:text-yellow-300 transition duration-200">
+                            View favorites
+                        </button>
+                        <button class="bg-black text-white py-1 px-2 rounded hover:bg-gray-700 hover:text-yellow-300 transition duration-200">
+                            View history
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Sections for Edit/Logout, Tags, and Collectives -->
+                <div class="md:w-2/3 mt-8  rounded-lg">
+                    
+                    <!-- Large screen buttons -->
+                    <div class=" gap-4 justify-end mb-10 hidden md:flex">
+                        <button class="border border-black rounded-full px-4 py-2 flex items-center 
+                            bg-white text-black 
+                            hover:bg-black hover:text-white hover:shadow-lg 
+                            transition duration-300">
+                            Edit Profile
+                        </button>
+                        <div class="flex items-center">
+                            <button class="border border-black rounded-full px-4 py-2 flex items-center bg-white text-black hover:bg-black hover:text-white hover:shadow-lg transition duration-300">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2">
+                                    <path d="M15 16.5V19C15 20.1046 14.1046 21 13 21H6C4.89543 21 4 20.1046 4 19V5C4 3.89543 4.89543 3 6 3H13C14.1046 3 15 3.89543 15 5V8.0625M11 12H21M21 12L18.5 9.5M21 12L18.5 14.5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Tags Section (large screens) -->
+                    <div class="mb-6 pl-10 hidden md:block">
+                        <h3 class="text-gray-500 font-bold text-xl underline mb-4">Tags</h3>
+                        <div class="overflow-x-auto overflow-y-hidden mt-2" style="white-space: nowrap; scrollbar-width: none; -ms-overflow-style: none;">
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Python</span>
+                            <!-- Other tags... -->
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Javascript</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">PHP</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">jQuery</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">MongoDB</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Python</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Javascript</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">PHP</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">jQuery</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">MongoDB</span>
+                        
+                        </div>
+                    </div>
+    
+                    <!-- Collectives Section (large screens) -->
+                    <div class="pl-10 hidden md:block">
+                        <h3 class="text-gray-500 font-bold text-xl underline mb-4">Collectives</h3>
+                        <div class="flex gap-4 mt-2 flex-wrap">
+                            <div class="flex flex-col items-center">
+                                <img src="nlp.png" alt="Data Science Logo" class="w-10 h-10 mb-1" />
+                                <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full">NLP</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <img src="R.png" alt="Web Development Logo" class="w-10 h-10 mb-1" />
+                                <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full">R Language</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <img src="MD.png" alt="Mobile Apps Logo" class="w-10 h-10 mb-1" />
+                                <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full">Mobile developpement</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <img src="CICD.png" alt="Mobile Apps Logo" class="w-10 h-10 mb-1" />
+                                <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full">CI/CD</span>
+                            </div>
+                            <!-- Other collectives... -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Elements for small screens only -->
+        <div class="mt-10 px-6 flex flex-col gap-6 md:hidden">
+            <div class="flex gap-4  justify-center">
+                <button class="border border-black rounded-full px-4 py-2 bg-white text-black hover:bg-black hover:text-white hover:shadow-lg transition duration-300">
+                    Edit Profile
+                </button>
+                <button class="border border-black rounded-full px-4 py-2 bg-white text-black hover:bg-black hover:text-white hover:shadow-lg transition duration-300">
+                    Logout
+                </button>
+            </div>
+    
+            <div>
+                <h3 class="text-gray-500 font-bold text-xl underline mb-4">Tags</h3>
+                <div class="overflow-x-auto overflow-y-hidden mt-2" style="white-space: nowrap;scrollbar-width: none; -ms-overflow-style: none;">
+                    <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Python</span>
+                    <!-- Other tags... -->
+                    <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Javascript</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">PHP</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">jQuery</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">MongoDB</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Python</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">Javascript</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">PHP</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">jQuery</span>
+                            <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full inline-block">MongoDB</span>
+                        
+                </div>
+            </div>
+    
+            <div>
+                <h3 class="text-gray-500 font-bold text-xl underline mb-4">Collectives</h3>
+                <div class="flex gap-4 mt-2 flex-wrap">
+                    <div class="flex flex-col items-center">
+                        <img src="nlp.png" alt="Data Science Logo" class="w-10 h-10 mb-1" />
+                        <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full">NLP</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="R.png" alt="Web Development Logo" class="w-10 h-10 mb-1" />
+                        <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full">R Language</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img src="MD.png" alt="Mobile Apps Logo" class="w-10 h-10 mb-1" />
+                        <span class="bg-gray-200 text-gray-700 py-1 px-3 rounded-full">Mobile developpement</span>
+                    </div>
+                    
+                    <!-- Other collectives... -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Badges Section -->
+<!-- Badges Section -->
+<div class="pl-4 mt-16 ">
+    <h3 class="text-yellow-500 font-bold text-xl underline mb-4 ml-8">Badges</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Gold Badge Card -->
+        <div class="bg-gray-100 border border-gray-200 rounded-3xl shadow-lg p-6 w-[70%] md:w-[100%] mx-auto mb-4">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <img src="golden.png" alt="Gold Badge Icon" class="w-20 h-20 mr-6">
+                    <div class="flex flex-col">
+                        <h4 class="md:text-2xl text-xl font-bold">556</h4>
+                        <span class="text-black text-lg md:text-xl">gold badges</span>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li class="flex items-center justify-between mb-2">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-yellow-400 w-2 h-2 rounded-full mr-2"></span> clearcase
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+                <li class="flex items-center justify-between mb-2">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-yellow-400 w-2 h-2 rounded-full mr-2"></span> bitbucket
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+                <li class="flex items-center justify-between">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-yellow-400 w-2 h-2 rounded-full mr-2"></span> clearcase
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Silver Badge Card -->
+        <div class="bg-gray-100 border border-gray-200 rounded-3xl shadow-lg p-6 w-[70%] md:w-[100%] mx-auto mb-4">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <img src="silver.png" alt="Silver Badge Icon" class="w-20 h-20 mr-6">
+                    <div class="flex flex-col">
+                        <h4 class="md:text-2xl text-xl font-bold">4,669</h4>
+                        <span class="text-black text-lg md:text-xl">silver badges</span>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li class="flex items-center justify-between mb-2">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-gray-400 w-2 h-2 rounded-full mr-2"></span> mysgit
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+                <li class="flex items-center justify-between mb-2">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-gray-400 w-2 h-2 rounded-full mr-2"></span> plugins
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+                <li class="flex items-center justify-between">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-gray-400 w-2 h-2 rounded-full mr-2"></span> gitolite
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+            </ul>
+        </div>
+    
+        <!-- Bronze Badge Card -->
+        <div class="bg-gray-100 border border-gray-200 rounded-3xl shadow-lg p-6 w-[70%] md:w-[100%] mx-auto mb-4">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <img src="bronze.png" alt="Bronze Badge Icon" class="w-20 h-20 mr-6">
+                    <div class="flex flex-col">
+                        <h4 class="md:text-2xl text-xl font-bold">5,526</h4>
+                        <span class="text-black text-lg md:text-xl">bronze badges</span>
+                    </div>
+                </div>
+            </div>
+            <ul>
+                <li class="flex items-center justify-between mb-2">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-bronze-400 w-2 h-2 rounded-full mr-2"></span> gitosis
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+                <li class="flex items-center justify-between mb-2">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-bronze-400 w-2 h-2 rounded-full mr-2"></span> cleartool
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+                <li class="flex items-center justify-between">
+                    <span class="flex items-center">
+                        <span class="flex items-center border border-gray-600 p-1 rounded">
+                            <span class="bg-bronze-400 w-2 h-2 rounded-full mr-2"></span> clearcase
+                        </span>
+                    </span>
+                    <span class="text-black ml-2 text-xs md:text-s">Apr 21, 2012</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    
+</div>
+
+<div class="top-posts-container bg-gray-100 border border-gray-200 rounded-3xl p-4 shadow-lg mt-14 ml-6 mr-6">
+    <h2 class="text-xl font-bold text-yellow-500 underline text-left  ml-4 mt-4">Top Posts</h2>
+    <div class="flex items-center justify-between mb-4">
+        
+
+        <div class="flex flex-col sm:flex-row items-center justify-between w-[90%] mx-auto mt-6 mb-4">
+            <!-- Conteneur de recherche et de filtre pour les petits écrans -->
+            <div class="relative w-full max-w-xs flex items-center mb-4 sm:mb-0">
+                <!-- Input de recherche -->
+                <input type="text" placeholder="Search ..." class="bg-gray-400 bg-opacity-50 text-black rounded-[15px] pl-10 pr-4 py-3 placeholder-gray-500 focus:outline-none w-full">
+                <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.5 10.5A6.5 6.5 0 1 1 10 4a6.5 6.5 0 0 1 6.5 6.5z" />
+                    </svg>
+                </div>
+        
+                <!-- Icône de filtre pour les petits écrans -->
+                <button id="filter-toggle" onclick="toggleFilter()" class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none sm:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </button>
+            </div>
+        
+            <!-- Filtre pour les grands écrans et menu déroulant sur mobile -->
+            <div id="filter-section" class="hidden sm:flex items-center space-x-2 mt-4 sm:mt-0">
+                <div class="flex space-x-2 bg-gray-300 bg-opacity-60 rounded-full p-2">
+                    <button class="bg-black text-white px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button selected-filter" onclick="selectFilter(this)">ALL</button>
+                    <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Questions</button>
+                    <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Answers</button>
+                    <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Posts</button>
+                </div>
+                <style>
+                   
+                .selected-filter {
+                    background-color: black; /* Fond noir pour le filtre sélectionné */
+                    color: white; /* Texte blanc pour le filtre sélectionné */
+                }
+
+                                </style>
+
+                <script>
+                    function selectFilter(selectedButton) {
+                        // Récupérer tous les boutons de filtre
+                        const filterButtons = document.querySelectorAll('.filter-button');
+                    
+                        // Parcourir tous les boutons et enlever la classe de sélection
+                        filterButtons.forEach(button => {
+                            button.classList.remove('selected-filter');
+                            button.classList.add('bg-transparent'); // Réinitialiser à la couleur par défaut
+                            button.classList.remove('text-black'); // Réinitialiser la couleur du texte
+                            button.classList.add('text-black'); // Assurer que le texte est noir par défaut
+                        });
+                    
+                        // Ajouter la classe de sélection au bouton cliqué
+                        selectedButton.classList.add('selected-filter');
+                        selectedButton.classList.remove('bg-transparent'); // Changer le fond en noir
+                        selectedButton.classList.remove('text-black'); // Enlever le texte noir
+                        selectedButton.classList.add('text-white'); // Assurer que le texte est blanc pour le bouton sélectionné
+                    }
+                    </script>
+                
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    
+    <div class="post-list">
+        <div class="post-item flex items-center justify-between bg-white p-3 rounded-md shadow-md mb-2">
+            <span class="px-3 py-1 rounded-full font-bold text-sm" style="background-color: #B6DD08; color: #ffffff;">Answer</span>
+            <p class="post-title text-blue-800 flex-grow mx-4">Why is char[] preferred over String for password?</p>
+            <span class="post-date md:flex hidden text-gray-500">20/10/2024</span>
+        </div>
+        <div class="post-item flex items-center justify-between bg-white p-3 rounded-md shadow-md mb-2">
+            <span class="px-3 py-1 rounded-full font-bold text-sm" style="background-color: #848A92; color: #ffffff;">Post</span>
+            <p class="post-title text-blue-800 flex-grow mx-4">Why is char[] preferred over String for password?</p>
+            <span class="post-date md:flex hidden text-gray-500">20/10/2024</span>
+        </div>
+        <div class="post-item flex items-center justify-between bg-white p-3 rounded-md shadow-md mb-2">
+            <span class="px-3 py-1 rounded-full font-bold text-sm" style="background-color: #F3BB00; color: #ffffff;">Question</span>
+            <p class="post-title text-blue-800 flex-grow mx-4">Why is char[] preferred over String for password?</p>
+            <span class="post-date md:flex hidden text-gray-500">20/10/2024</span>
+        </div>
+        <div class="post-item flex items-center justify-between bg-white p-3 rounded-md shadow-md mb-2">
+            <span class="px-3 py-1 rounded-full font-bold text-sm" style="background-color: #B6DD08; color: #ffffff;">Answer</span>
+            <p class="post-title text-blue-800 flex-grow mx-4">Why is char[] preferred over String for password?</p>
+            <span class="post-date md:flex hidden text-gray-500">20/10/2024</span>
+        </div>
+        <div class="post-item flex items-center justify-between bg-white p-3 rounded-md shadow-md mb-2">
+            <span class="px-3 py-1 rounded-full font-bold text-sm" style="background-color: #848A92; color: #ffffff;">Post</span>
+            <p class="post-title text-blue-800 flex-grow mx-4">Why is char[] preferred over String for password?</p>
+            <span class="post-date md:flex hidden text-gray-500">20/10/2024</span>
+        </div>
+        <div class="post-item flex items-center justify-between bg-white p-3 rounded-md shadow-md mb-2">
+            <span class="px-3 py-1 rounded-full font-bold text-sm" style="background-color: #F3BB00; color: #ffffff;">Question</span>
+            <p class="post-title text-blue-800 flex-grow mx-4">Why is char[] preferred over String for password?</p>
+            <span class="post-date md:flex hidden text-gray-500">20/10/2024</span>
+        </div>
+        <!-- Ajoutez d'autres éléments de post comme les exemples ci-dessus -->
+    </div>
+</div>
+<footer class="bg-black text-center py-6 mt-20">
+    <p class="text-[#F3BB00] text-lg mb-2">Need help?</p>
+    <a href="mailto:votre-email@example.com" class="text-white text-sm mb-4 inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12.713L.727 5.11C.889 5.042 1.068 5 1.258 5h21.484c.19 0 .369.042.531.11L12 12.713zM0 6.833v11.174c0 .434.351.833.833.833h22.334c.482 0 .833-.399.833-.833V6.833L12 14.713 0 6.833z"/>
+        </svg>
+        support-AskIT@example.com
+    </a>
+    <p class="text-[#F3BB00] text-lg mb-2">Connect with us</p>
+    <div class="flex justify-center space-x-4 mt-2">
+        <a href="https://facebook.com" target="_blank" class="text-white">
+            <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-6.92H7.5V12h2.5V9.5c0-2.48 1.52-3.8 3.73-3.8 1.06 0 1.97.08 2.24.11v2.6h-1.54c-1.21 0-1.44.58-1.44 1.42V12h2.9l-.46 2.88H13.5V22c4.56-.93 8-4.96 8-9.8z"/>
+            </svg>
+        </a>
+        <a href="https://x.com" target="_blank" class="text-white">
+            <img src="x.png" alt="X Platform" class="w-6 h-6" />
+        </a>
+        <a href="https://github.com" target="_blank" class="text-white">
+            <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.19 3.35 9.59 8 11.2.58.1.8-.25.8-.56v-2.1c-3.25.7-3.94-1.57-3.94-1.57-.52-1.32-1.28-1.67-1.28-1.67-1.04-.7.08-.68.08-.68 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.6-.3-5.34-1.3-5.34-5.73 0-1.26.47-2.28 1.23-3.08-.13-.3-.54-1.5.12-3.13 0 0 1-.33 3.3 1.25.96-.27 1.98-.4 3-.4s2.04.14 3 .4c2.3-1.58 3.3-1.25 3.3-1.25.66 1.63.25 2.83.12 3.13.76.8 1.23 1.82 1.23 3.08 0 4.44-2.75 5.43-5.37 5.72.42.37.8 1.1.8 2.22v3.28c0 .31.22.67.8.56 4.65-1.61 8-5.99 8-11.19C23.5 5.73 18.27.5 12 .5z"/>
+            </svg>
+        </a>
+    </div>
+</footer>
+<script>
+    // Fonction JavaScript pour afficher/masquer les filtres sur mobile
+     // Fonction JavaScript pour afficher/masquer les filtres sur mobile
+    function toggleFilter() {
+                const filterSection = document.getElementById("filter-section");
+                if (filterSection.classList.contains("hidden")) {
+                    filterSection.classList.remove("hidden"); // Affiche les filtres
+                } else {
+                    filterSection.classList.add("hidden"); // Cache les filtres
+                }
+            }
+
+    function toggleMenu() {
+    const menu = document.getElementById("mobile-menu");
+    menu.classList.toggle("hidden");
+        }
+</script>
+    
+</body>
+</html>
