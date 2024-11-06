@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Background Page</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+            }
+}
+
+    </script>
+</head>
+<body class="font-[Poppins] min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="fixed top-5 left-0 right-0 mx-auto w-[90%] bg-white bg-opacity-50 shadow-md backdrop-blur-0 z-50 rounded-[20px] p-2">
+        <div class="container mx-auto px-1.5 py-1.5 flex justify-between items-center">
+            <div><img src="logo.png" alt="Logo" class="h-8 w-auto"></div>
+            
+            <!-- Menu pour les écrans moyens et grands -->
+            <div class="space-x-8 hidden md:flex">
+                <a href="#" class="text-black hover:text-gray-700 text-lg font-semibold">Home</a>
+                <a href="ask.html" class="text-black hover:text-gray-700 text-lg">Ask</a>
+                <a href="Tags.html" class="text-black hover:text-gray-700 text-lg">Tags</a>
+                <a href="users.html" class="text-black hover:text-gray-700 text-lg">Users</a>
+                <a href="account.html" class="text-black hover:text-gray-700 text-lg">Account</a>
+            </div>
+            
+            <!-- Boutons de Connexion/Inscription pour tous les écrans -->
+            <div class="space-x-4 hidden sm:flex items-center">
+                <a href="signIn.html" class="text-black hover:text-gray-700 text-lg px-3 py-1.5">Sign In</a>
+                <a href="signUp.html" class="bg-white text-black px-3 py-1.5 rounded-[16px] text-lg">Sign Up</a>
+            </div>
+            
+            
+            <!-- Bouton pour Mobile -->
+            <div class="md:hidden flex items-center">
+                <button onclick="toggleMenu()" class="text-black focus:outline-none">
+                    <!-- Icône de menu -->
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu déroulant pour mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 shadow-md rounded-b-lg p-4 space-y-4">
+            <a href="#" class="block text-black hover:text-gray-700 text-lg font-semibold">Home</a>
+            <a href="ask.html" class="block text-black hover:text-gray-700 text-lg">Ask</a>
+            <a href="Tags.html" class="block text-black hover:text-gray-700 text-lg">Tags</a>
+            <a href="users.html" class="block text-black hover:text-gray-700 text-lg">Users</a>
+            <a href="account.html" class="block text-black hover:text-gray-700 text-lg">Account</a>
+            <div class="flex space-x-4">
+                <a href="signIn.html" class="block text-black hover:text-gray-700 text-lg px-3 py-1.5">Sign In</a>
+                <a href="signUp.html" class="block bg-white text-black px-5 py-2 rounded-[16px] text-lg">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- First Section -->
+<section class="h-screen bg-[url('BG1.PNG')] bg-cover flex flex-col items-center justify-center relative p-4 sm:p-0 mb-0">
+    <div class="text-center text-white flex flex-col items-center space-y-1" style="margin-top: 9rem;">
+        <h1 class="text-5xl sm:text-7xl font-bold text-black">WELCOME</h1>
+        <h1 class="text-5xl sm:text-7xl font-bold text-black">TO</h1>
+        <img src="logo.png" alt="Company Logo" class="w-200 h-auto" style="margin-bottom: 50px;">
+    </div>
+    
+    <div class="flex flex-col items-center space-y-4 mt-0 px-4">
+        <p class="text-white text-center sm:text-xl max-w-xs sm:max-w-2xl">
+            Ask it is a platform for developers to find solutions to their coding problems. The community provides valuable insights and support for a wide range of programming queries.
+        </p>
+        <div id="scroll-btn-page1" class="w-10 h-10 hidden bg-gray-700 rounded-full md:flex items-center justify-center animate-bounce cursor-pointer" onclick="scrollToSection('section-page1')">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-7-7l7 7 7-7" />
+            </svg>
+        </div>
+    
+        <!-- Bouton aligné sous le paragraphe sur petits écrans -->
+        <button onclick="window.location.href='ask.html';" class="mt-4 sm:absolute sm:bottom-6 sm:right-10 bg-black hover:bg-white text-white hover:text-black font-bold text-sm sm:text-lg w-1/2 sm:w-56 h-12 sm:h-16 rounded-[41px] transform sm:transform-none sm:-translate-x-0">
+            Get Your Answers
+        </button>
+        
+    </div>
+    
+    
+</section>
+
+<!-- Second Section -->
+<section id="section-page1" class="h-screen bg-[url('BG2.PNG')] bg-cover flex flex-col lg:flex-row items-start justify-between p-6 sm:pl-12 sm:pt-24">    <div class="text-left text-white max-w-2xl w-full lg:w-2/3">
+        <h1 class="text-3xl sm:text-5xl font-bold mb-6 text-yellow-400">ABOUT US</h1>
+        <p class="text-base sm:text-lg md:text-xl mb-8 sm:mb-20">
+            Ask It offers a vast repository of coding knowledge, with features like search filters, user profiles, and saved favorites. It caters to both beginners and experienced developers seeking assistance.
+        </p>
+        <div class="flex justify-around sm:justify-center space-x-8 mb-10 sm:mb-20">
+            <div class="text-center">
+                <span class="text-3xl sm:text-4xl md:text-5xl font-bold text-black">+1,837</span>
+                <p class="text-base sm:text-lg md:text-xl text-black">Questions</p>
+            </div>
+            <div class="text-center">
+                <span class="text-3xl sm:text-4xl md:text-5xl font-bold text-black">+1,265</span>
+                <p class="text-base sm:text-lg md:text-xl text-black">Answers</p>
+            </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row justify-center items-start space-y-4 sm:space-y-0 sm:space-x-4">
+            <div class="bg-gray-700 bg-opacity-60 rounded-lg p-4 mb-4 max-w-full sm:max-w-xs flex flex-col justify-between w-full h-full">
+                <p class="text-sm sm:text-base text-white font-semibold">MILLIONS OF MEMBERS ALL OVER THE WORLD</p>
+                <hr class="border-t border-white my-2">
+                <div class="flex mt-2 space-x-2 justify-center sm:justify-start">
+                    <img src="OIP (2).jpeg" alt="Member 1" class="w-8 h-8 rounded-full border-2 border-white">
+                    <img src="OIP (4).jpeg" alt="Member 2" class="w-8 h-8 rounded-full border-2 border-white">
+                    <img src="OIP (3).jpeg" alt="Member 3" class="w-8 h-8 rounded-full border-2 border-white">
+                    <img src="OIP (1).jpeg" alt="Member 1" class="w-8 h-8 rounded-full border-2 border-white">
+                    <img src="OIP (7).jpeg" alt="Member 2" class="w-8 h-8 rounded-full border-2 border-white">
+                    <img src="télécharger.jpeg" alt="Member 3" class="w-8 h-8 rounded-full border-2 border-white">
+                    <img src="OIP.jpeg" alt="Member 3" class="w-8 h-8 rounded-full border-2 border-white">
+                </div>
+            </div>
+            
+            <div class="bg-gray-700 bg-opacity-60 rounded-lg p-4 mb-4 max-w-full sm:max-w-xs flex flex-col items-center justify-between cursor-pointer w-full h-full">
+                <span class="text-white font-semibold mb-2 text-center">DISCOVER THE TOP QUESTIONS</span>
+                <hr class="border-t border-white w-full my-2">
+                <div id="scroll-btn-page2" onclick="scrollToSection('section-page2')" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center animate-bounce cursor-pointer" onclick="scrollToSection('section-page1')">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m-7-7l7 7 7-7" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden lg:flex flex-col items-start justify-center w-full lg:w-1/3 h-full p-6 bg-gray-800 bg-opacity-70 rounded-lg space-y-4 mt-10 lg:mt-0">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-2">What Our Users Say</h2>
+        <div class="space-y-4 max-h-80 overflow-y-auto custom-scrollbar">
+            <div class="bg-gray-700 bg-opacity-60 p-4 rounded-lg">
+                <p class="text-white text-sm italic">"Ask It has been an incredible resource for my coding journey. I find answers to almost all my questions!"</p>
+                <p class="text-gray-400 text-xs mt-2">- Alex, Software Developer</p>
+            </div>
+            <div class="bg-gray-700 bg-opacity-60 p-4 rounded-lg">
+                <p class="text-white text-sm italic">"The community here is super supportive, and the platform is easy to use. Highly recommend!"</p>
+                <p class="text-gray-400 text-xs mt-2">- Jamie, Web Developer</p>
+            </div>
+            <div class="bg-gray-700 bg-opacity-60 p-4 rounded-lg">
+                <p class="text-white text-sm italic">"I love the saved favorites feature. It helps me keep track of important solutions for future reference."</p>
+                <p class="text-gray-400 text-xs mt-2">- Taylor, Data Scientist</p>
+            </div>
+            <div class="bg-gray-700 bg-opacity-60 p-4 rounded-lg">
+                <p class="text-white text-sm italic">"I love the saved favorites feature. It helps me keep track of important solutions for future reference."</p>
+                <p class="text-gray-400 text-xs mt-2">- Taylor, Data Scientist</p>
+            </div>
+            <div class="bg-gray-700 bg-opacity-60 p-4 rounded-lg">
+                <p class="text-white text-sm italic">"I love the saved favorites feature. It helps me keep track of important solutions for future reference."</p>
+                <p class="text-gray-400 text-xs mt-2">- Taylor, Data Scientist</p>
+            </div>
+            <div class="bg-gray-700 bg-opacity-60 p-4 rounded-lg">
+                <p class="text-white text-sm italic">"I love the saved favorites feature. It helps me keep track of important solutions for future reference."</p>
+                <p class="text-gray-400 text-xs mt-2">- Taylor, Data Scientist</p>
+            </div>
+            <!-- Ajoutez plus d'avis ici si nécessaire -->
+        </div>
+    </div>
+    
+    <style>
+        /* Masquer la barre de défilement sur tous les navigateurs */
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none; /* Pour Chrome, Safari et Opera */
+        }
+    
+        .custom-scrollbar {
+            -ms-overflow-style: none;  /* Pour Internet Explorer et Edge */
+            scrollbar-width: none;  /* Pour Firefox */
+        }
+    </style>
+    
+</section>
+  
+    
+   
+    
+   <!-- Fourth Section -->
+<section id="section-page2" class="min-h-screen bg-[url('BG4.PNG')] bg-cover p-8 text-white flex flex-col  sm:pl-12 sm:pt-24">
+    <!-- Titre de la Section -->
+    <h1 class="text-4xl font-bold mb-8" style="text-align: left;">Popular Questions</h1>
+    
+    <!-- Barre de Recherche et Filtres -->
+    <div class="flex flex-col sm:flex-row items-center justify-between w-full mb-10 space-y-4 sm:space-y-0">
+        <!-- Barre de recherche alignée à gauche -->
+        <div class="flex items-center w-full max-w-xs mb-4 space-x-2">
+            <!-- Champ de recherche -->
+            <div class="relative w-full">
+                <input type="text" placeholder="Search ..." class="bg-white bg-opacity-70 text-black rounded-[15px] pl-10 pr-4 py-3 placeholder-gray-500 focus:outline-none w-full">
+                <!-- Icône de loupe -->
+                <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M16.5 10.5A6.5 6.5 0 1 1 10 4a6.5 6.5 0 0 1 6.5 6.5z" />
+                    </svg>
+                </div>
+            </div>
+        
+            <!-- Icône de filtre pour mobile -->
+            <button id="filter-toggle" onclick="toggleFilter()" class="text-gray-500 hover:text-gray-700 focus:outline-none sm:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Conteneur pour les filtres et le bouton, affiché à droite sur grand écran -->
+        <div id="filter-section" class="hidden sm:flex flex-col sm:flex-row items-center sm:space-x-2 w-full sm:w-auto space-y-2 sm:space-y-0 mt-4 sm:mt-0">
+            <div class="flex space-x-2 bg-white bg-opacity-70 rounded-full p-2 w-full sm:w-auto justify-center">
+                <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button selected-filter" onclick="selectFilter(this)">Tags</button>
+                <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Date</button>
+                <button class="bg-transparent text-black px-4 py-2 rounded-full hover:bg-opacity-100 focus:outline-none filter-button" onclick="selectFilter(this)">Votes</button>
+            </div>
+            
+            <style>
+                .selected-filter {
+    background-color: white; /* Fond blanc pour le filtre sélectionné */
+    color: black; /* Texte noir pour le filtre sélectionné */
+}
+
+
+            </style>
+            <script>
+                // Fonction pour gérer la sélection des filtres
+// Fonction pour gérer la sélection des filtres
+function selectFilter(selectedButton) {
+    // Récupérer tous les boutons de filtre
+    const filterButtons = document.querySelectorAll('.filter-button');
+
+    // Parcourir tous les boutons et enlever la classe de sélection
+    filterButtons.forEach(button => {
+        button.classList.remove('selected-filter');
+        button.classList.add('bg-transparent'); // Réinitialiser à la couleur par défaut
+        button.classList.remove('text-black'); // Réinitialiser la couleur du texte
+        button.classList.add('text-black'); // Assurer que le texte est noir par défaut
+    });
+
+    // Ajouter la classe de sélection au bouton cliqué
+    selectedButton.classList.add('selected-filter');
+    selectedButton.classList.remove('bg-transparent'); // Changer le fond en blanc
+    selectedButton.classList.add('text-black'); // Assurer que le texte est noir
+}
+
+            </script>
+            
+        
+            <!-- Bouton "Get Your Answers" caché sur mobile -->
+            <!-- <button class="bg-black hover:bg-white text-white hover:text-black font-bold text-sm hidden sm:block h-12 rounded-[41px] py-3 sm:px-6 text-center">
+                Get Your Answers
+            </button>           -->
+        </div>
+        
+        <script>
+            // Fonction JavaScript pour afficher/masquer les filtres sur mobile
+            function toggleFilter() {
+                const filterSection = document.getElementById("filter-section");
+                filterSection.classList.toggle("hidden");
+            }
+        </script>
+        
+        
+    </div>
+    
+    
+        <!-- Bouton Get Your Answers aligné à droite avec les filtres -->
+
+    
+    
+
+    <!-- Grille des Questions -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-7xl">
+        <!-- Carte de Question -->
+        <!-- Carte de Question -->
+        <div class="bg-black bg-opacity-80 p-4 rounded-[20px] flex flex-col space-y-3 question-card" >
+            <!-- En-tête de la Carte : Image de profil et Question -->
+            <div class="flex items-center space-x-3">
+                <img src="OIP.jpeg" alt="User Photo" class="w-10 h-10 rounded-full border-2 border-white">
+                <h2 class="text-lg  text-white">
+                    <span class="underline">How do I install the latest Maui <br>workload?</span>
+                </h2>
+            </div>
+            
+            <!-- Détails : Réponses, Votes, et Vues (alignés à droite) -->
+            <div class="flex justify-end space-x-6 text-yellow-400 text-sm">
+                <div class="flex flex-col items-center"> 
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <g id="Interface / Check_All_Big"> 
+                                <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            </g> 
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">5 Answers</span>
+                </div>
+                
+                
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                    </svg>
+                    <span class="text-xs text-white">5 Votes</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#F3BB00"></path>
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">20 Views</span>
+                </div>
+                
+            </div>
+        
+            <!-- Ligne avec le champ de réponse et les icônes -->
+            <div class="flex items-center justify-between space-x-3 mt-2">
+                <!-- Champ de Réponse -->
+                <input type="text" placeholder="Add an answer ..." class="w-60 bg-white bg-opacity-60 text-white px-3 py-2 rounded-[8px] text-xs placeholder-gray-700 focus:outline-none text-center">
+        
+                <!-- Icônes de Commentaire, Favori, et Like -->
+                <div class="flex space-x-2 text-gray-400">
+                    <!-- Icône de Commentaire -->
+<button class="flex items-center">
+    <svg fill="#000000" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M1662.178 0v1359.964h-648.703l-560.154 560.154v-560.154H0V0h1662.178ZM1511.07 151.107H151.107v1057.75h453.321v346.488l346.489-346.488h560.154V151.107ZM906.794 755.55v117.53H453.32V755.55h453.473Zm302.063-302.365v117.529H453.32V453.185h755.536Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button> 
+
+<!-- Icône de Favori -->
+<button class="flex items-center text-gray-400 hover:text-yellow-500">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"> <!-- Ajout des classes pour la taille -->
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2ZM15.0103 9.75C14.0403 10.1 13.0203 10.28 12.0003 10.28C10.9803 10.28 9.96031 10.1 8.99031 9.75C8.60031 9.61 8.40031 9.18 8.54031 8.79C8.69031 8.4 9.12031 8.2 9.51031 8.34C11.1203 8.92 12.8903 8.92 14.5003 8.34C14.8903 8.2 15.3203 8.4 15.4603 8.79C15.6003 9.18 15.4003 9.61 15.0103 9.75Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button>
+
+
+
+
+<!-- Icône de Like -->
+<button class="flex items-center" onclick="toggleLike(this)">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" class="w-5 h-5 icon-heart">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <title>heart-like-solid</title>
+            <g id="Layer_2" data-name="Layer 2">
+                <g id="invisible_box" data-name="invisible box">
+                    <rect width="48" height="48" fill="none"></rect>
+                </g>
+                <g id="icons_Q2" data-name="icons Q2">
+                    <path d="M34,4c-3.9,0-8,3.1-10,6.5C22,7.1,17.9,4,14,4A12,12,0,0,0,5.5,7.6,11.9,11.9,0,0,0,2,16.1c0,4.1,2.7,7.6,5,10.2L23.3,43.7a1,1,0,0,0,1.4,0L41,26.3c2.3-2.6,5-6.1,5-10.2A12.1,12.1,0,0,0,34,4Z"></path>
+                </g>
+            </g>
+        </g>
+    </svg>
+</button>
+
+<script>
+    function toggleLike(button) {
+        const heartIcon = button.querySelector('.icon-heart');
+        const isLiked = heartIcon.getAttribute('fill') === '#FF0000'; // Vérifie si la couleur est déjà rouge
+
+        // Change la couleur en fonction de l'état actuel
+        heartIcon.setAttribute('fill', isLiked ? '#FFFFFF' : '#FF0000');
+    }
+</script>
+
+
+
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="bg-black bg-opacity-80 p-4 rounded-[20px] flex flex-col space-y-3 question-card">
+            <!-- En-tête de la Carte : Image de profil et Question -->
+            <div class="flex items-center space-x-3">
+                <img src="OIP (7).jpeg" alt="User Photo" class="w-10 h-10 rounded-full border-2 border-white">
+                <h2 class="text-lg  text-white">
+                    <span class="underline">How do I install the latest Maui <br>workload?</span>
+                </h2>
+            </div>
+            
+            <!-- Détails : Réponses, Votes, et Vues (alignés à droite) -->
+            <div class="flex justify-end space-x-6 text-yellow-400 text-sm">
+                <div class="flex flex-col items-center"> 
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <g id="Interface / Check_All_Big"> 
+                                <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            </g> 
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">5 Answers</span>
+                </div>
+                
+                
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                    </svg>
+                    <span class="text-xs text-white">5 Votes</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#F3BB00"></path>
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">20 Views</span>
+                </div>
+                
+            </div>
+        
+            <!-- Ligne avec le champ de réponse et les icônes -->
+            <div class="flex items-center justify-between space-x-3 mt-2">
+                <!-- Champ de Réponse -->
+                <input type="text" placeholder="Add an answer ..." class="w-60 bg-white bg-opacity-60 text-white px-3 py-2 rounded-[8px] text-xs placeholder-gray-700 focus:outline-none text-center">
+        
+                <!-- Icônes de Commentaire, Favori, et Like -->
+                <div class="flex space-x-2 text-gray-400">
+                    <!-- Icône de Commentaire -->
+<button class="flex items-center">
+    <svg fill="#000000" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M1662.178 0v1359.964h-648.703l-560.154 560.154v-560.154H0V0h1662.178ZM1511.07 151.107H151.107v1057.75h453.321v346.488l346.489-346.488h560.154V151.107ZM906.794 755.55v117.53H453.32V755.55h453.473Zm302.063-302.365v117.529H453.32V453.185h755.536Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button> 
+
+<!-- Icône de Favori -->
+<button class="flex items-center text-gray-400 hover:text-yellow-500">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"> <!-- Ajout des classes pour la taille -->
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2ZM15.0103 9.75C14.0403 10.1 13.0203 10.28 12.0003 10.28C10.9803 10.28 9.96031 10.1 8.99031 9.75C8.60031 9.61 8.40031 9.18 8.54031 8.79C8.69031 8.4 9.12031 8.2 9.51031 8.34C11.1203 8.92 12.8903 8.92 14.5003 8.34C14.8903 8.2 15.3203 8.4 15.4603 8.79C15.6003 9.18 15.4003 9.61 15.0103 9.75Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button>
+
+
+
+
+<!-- Icône de Like -->
+<button class="md:flex hidden items-center">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <title>heart-like-solid</title>
+            <g id="Layer_2" data-name="Layer 2">
+                <g id="invisible_box" data-name="invisible box">
+                    <rect width="48" height="48" fill="none"></rect>
+                </g>
+                <g id="icons_Q2" data-name="icons Q2">
+                    <path d="M34,4c-3.9,0-8,3.1-10,6.5C22,7.1,17.9,4,14,4A12,12,0,0,0,5.5,7.6,11.9,11.9,0,0,0,2,16.1c0,4.1,2.7,7.6,5,10.2L23.3,43.7a1,1,0,0,0,1.4,0L41,26.3c2.3-2.6,5-6.1,5-10.2A12.1,12.1,0,0,0,34,4Z"></path>
+                </g>
+            </g>
+        </g>
+    </svg>
+</button>
+
+
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="bg-black bg-opacity-80 p-4 rounded-[20px] flex flex-col space-y-3">
+            <!-- En-tête de la Carte : Image de profil et Question -->
+            <div class="flex items-center space-x-3">
+                <img src="OIP (4).jpeg" alt="User Photo" class="w-10 h-10 rounded-full border-2 border-white">
+                <h2 class="text-lg  text-white">
+                    <span class="underline">How do I install the latest Maui <br>workload?</span>
+                </h2>
+            </div>
+            
+            <!-- Détails : Réponses, Votes, et Vues (alignés à droite) -->
+            <div class="flex justify-end space-x-6 text-yellow-400 text-sm">
+                <div class="flex flex-col items-center"> 
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <g id="Interface / Check_All_Big"> 
+                                <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            </g> 
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">5 Answers</span>
+                </div>
+                
+                
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                    </svg>
+                    <span class="text-xs text-white">5 Votes</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#F3BB00"></path>
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">20 Views</span>
+                </div>
+                
+            </div>
+        
+            <!-- Ligne avec le champ de réponse et les icônes -->
+            <div class="flex items-center justify-between space-x-3 mt-2">
+                <!-- Champ de Réponse -->
+                <input type="text" placeholder="Add an answer ..." class="w-60 bg-white bg-opacity-60 text-white px-3 py-2 rounded-[8px] text-xs placeholder-gray-700 focus:outline-none text-center">
+        
+                <!-- Icônes de Commentaire, Favori, et Like -->
+                <div class="flex space-x-2 text-gray-400">
+                    <!-- Icône de Commentaire -->
+<button class="flex items-center">
+    <svg fill="#000000" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M1662.178 0v1359.964h-648.703l-560.154 560.154v-560.154H0V0h1662.178ZM1511.07 151.107H151.107v1057.75h453.321v346.488l346.489-346.488h560.154V151.107ZM906.794 755.55v117.53H453.32V755.55h453.473Zm302.063-302.365v117.529H453.32V453.185h755.536Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button> 
+
+<!-- Icône de Favori -->
+<button class="flex items-center text-gray-400 hover:text-yellow-500">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"> <!-- Ajout des classes pour la taille -->
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2ZM15.0103 9.75C14.0403 10.1 13.0203 10.28 12.0003 10.28C10.9803 10.28 9.96031 10.1 8.99031 9.75C8.60031 9.61 8.40031 9.18 8.54031 8.79C8.69031 8.4 9.12031 8.2 9.51031 8.34C11.1203 8.92 12.8903 8.92 14.5003 8.34C14.8903 8.2 15.3203 8.4 15.4603 8.79C15.6003 9.18 15.4003 9.61 15.0103 9.75Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button>
+
+
+
+
+<!-- Icône de Like -->
+<button class="md:flex hidden items-center">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <title>heart-like-solid</title>
+            <g id="Layer_2" data-name="Layer 2">
+                <g id="invisible_box" data-name="invisible box">
+                    <rect width="48" height="48" fill="none"></rect>
+                </g>
+                <g id="icons_Q2" data-name="icons Q2">
+                    <path d="M34,4c-3.9,0-8,3.1-10,6.5C22,7.1,17.9,4,14,4A12,12,0,0,0,5.5,7.6,11.9,11.9,0,0,0,2,16.1c0,4.1,2.7,7.6,5,10.2L23.3,43.7a1,1,0,0,0,1.4,0L41,26.3c2.3-2.6,5-6.1,5-10.2A12.1,12.1,0,0,0,34,4Z"></path>
+                </g>
+            </g>
+        </g>
+    </svg>
+</button>
+
+
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="bg-black bg-opacity-80 p-4 rounded-[20px] flex flex-col space-y-3">
+            <!-- En-tête de la Carte : Image de profil et Question -->
+            <div class="flex items-center space-x-3">
+                <img src="OIP (3).jpeg" alt="User Photo" class="w-10 h-10 rounded-full border-2 border-white">
+                <h2 class="text-lg  text-white">
+                    <span class="underline">How do I install the latest Maui <br>workload?</span>
+                </h2>
+            </div>
+            
+            <!-- Détails : Réponses, Votes, et Vues (alignés à droite) -->
+            <div class="flex justify-end space-x-6 text-yellow-400 text-sm">
+                <div class="flex flex-col items-center"> 
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <g id="Interface / Check_All_Big"> 
+                                <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            </g> 
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">5 Answers</span>
+                </div>
+                
+                
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                    </svg>
+                    <span class="text-xs text-white">5 Votes</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#F3BB00"></path>
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">20 Views</span>
+                </div>
+                
+            </div>
+        
+            <!-- Ligne avec le champ de réponse et les icônes -->
+            <div class="flex items-center justify-between space-x-3 mt-2">
+                <!-- Champ de Réponse -->
+                <input type="text" placeholder="Add an answer ..." class="w-60 bg-white bg-opacity-60 text-white px-3 py-2 rounded-[8px] text-xs placeholder-gray-700 focus:outline-none text-center">
+        
+                <!-- Icônes de Commentaire, Favori, et Like -->
+                <div class="flex space-x-2 text-gray-400">
+                    <!-- Icône de Commentaire -->
+<button class="flex items-center">
+    <svg fill="#000000" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M1662.178 0v1359.964h-648.703l-560.154 560.154v-560.154H0V0h1662.178ZM1511.07 151.107H151.107v1057.75h453.321v346.488l346.489-346.488h560.154V151.107ZM906.794 755.55v117.53H453.32V755.55h453.473Zm302.063-302.365v117.529H453.32V453.185h755.536Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button> 
+
+<!-- Icône de Favori -->
+<button class="flex items-center text-gray-400 hover:text-yellow-500">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"> <!-- Ajout des classes pour la taille -->
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2ZM15.0103 9.75C14.0403 10.1 13.0203 10.28 12.0003 10.28C10.9803 10.28 9.96031 10.1 8.99031 9.75C8.60031 9.61 8.40031 9.18 8.54031 8.79C8.69031 8.4 9.12031 8.2 9.51031 8.34C11.1203 8.92 12.8903 8.92 14.5003 8.34C14.8903 8.2 15.3203 8.4 15.4603 8.79C15.6003 9.18 15.4003 9.61 15.0103 9.75Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button>
+
+
+
+
+<!-- Icône de Like -->
+<button class="flex items-center">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <title>heart-like-solid</title>
+            <g id="Layer_2" data-name="Layer 2">
+                <g id="invisible_box" data-name="invisible box">
+                    <rect width="48" height="48" fill="none"></rect>
+                </g>
+                <g id="icons_Q2" data-name="icons Q2">
+                    <path d="M34,4c-3.9,0-8,3.1-10,6.5C22,7.1,17.9,4,14,4A12,12,0,0,0,5.5,7.6,11.9,11.9,0,0,0,2,16.1c0,4.1,2.7,7.6,5,10.2L23.3,43.7a1,1,0,0,0,1.4,0L41,26.3c2.3-2.6,5-6.1,5-10.2A12.1,12.1,0,0,0,34,4Z"></path>
+                </g>
+            </g>
+        </g>
+    </svg>
+</button>
+
+
+                </div>
+                
+            </div>
+        </div>
+        <div class="bg-black bg-opacity-80 p-4 rounded-[20px] flex flex-col space-y-3">
+            <!-- En-tête de la Carte : Image de profil et Question -->
+            <div class="flex items-center space-x-3">
+                <img src="OIP (2).jpeg" alt="User Photo" class="w-10 h-10 rounded-full border-2 border-white">
+                <h2 class="text-lg  text-white">
+                    <span class="underline">How do I install the latest Maui <br>workload?</span>
+                </h2>
+            </div>
+            
+            <!-- Détails : Réponses, Votes, et Vues (alignés à droite) -->
+            <div class="flex justify-end space-x-6 text-yellow-400 text-sm">
+                <div class="flex flex-col items-center"> 
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <g id="Interface / Check_All_Big"> 
+                                <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            </g> 
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">5 Answers</span>
+                </div>
+                
+                
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                    </svg>
+                    <span class="text-xs text-white">5 Votes</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#F3BB00"></path>
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">20 Views</span>
+                </div>
+                
+            </div>
+        
+            <!-- Ligne avec le champ de réponse et les icônes -->
+            <div class="flex items-center justify-between space-x-3 mt-2">
+                <!-- Champ de Réponse -->
+                <input type="text" placeholder="Add an answer ..." class="w-60 bg-white bg-opacity-60 text-white px-3 py-2 rounded-[8px] text-xs placeholder-gray-700 focus:outline-none text-center">
+        
+                <!-- Icônes de Commentaire, Favori, et Like -->
+                <div class="flex space-x-2 text-gray-400">
+                    <!-- Icône de Commentaire -->
+<button class="flex items-center">
+    <svg fill="#000000" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M1662.178 0v1359.964h-648.703l-560.154 560.154v-560.154H0V0h1662.178ZM1511.07 151.107H151.107v1057.75h453.321v346.488l346.489-346.488h560.154V151.107ZM906.794 755.55v117.53H453.32V755.55h453.473Zm302.063-302.365v117.529H453.32V453.185h755.536Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button> 
+
+<!-- Icône de Favori -->
+<button class="flex items-center text-gray-400 hover:text-yellow-500">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"> <!-- Ajout des classes pour la taille -->
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2ZM15.0103 9.75C14.0403 10.1 13.0203 10.28 12.0003 10.28C10.9803 10.28 9.96031 10.1 8.99031 9.75C8.60031 9.61 8.40031 9.18 8.54031 8.79C8.69031 8.4 9.12031 8.2 9.51031 8.34C11.1203 8.92 12.8903 8.92 14.5003 8.34C14.8903 8.2 15.3203 8.4 15.4603 8.79C15.6003 9.18 15.4003 9.61 15.0103 9.75Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button>
+
+
+
+
+<!-- Icône de Like -->
+<button class="flex items-center">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <title>heart-like-solid</title>
+            <g id="Layer_2" data-name="Layer 2">
+                <g id="invisible_box" data-name="invisible box">
+                    <rect width="48" height="48" fill="none"></rect>
+                </g>
+                <g id="icons_Q2" data-name="icons Q2">
+                    <path d="M34,4c-3.9,0-8,3.1-10,6.5C22,7.1,17.9,4,14,4A12,12,0,0,0,5.5,7.6,11.9,11.9,0,0,0,2,16.1c0,4.1,2.7,7.6,5,10.2L23.3,43.7a1,1,0,0,0,1.4,0L41,26.3c2.3-2.6,5-6.1,5-10.2A12.1,12.1,0,0,0,34,4Z"></path>
+                </g>
+            </g>
+        </g>
+    </svg>
+</button>
+
+
+                </div>
+                
+            </div>
+        </div>
+        <div class="bg-black bg-opacity-80 p-4 rounded-[20px] flex flex-col space-y-3">
+            <!-- En-tête de la Carte : Image de profil et Question -->
+            <div class="flex items-center space-x-3">
+                <img src="OIP (1).jpeg" alt="User Photo" class="w-10 h-10 rounded-full border-2 border-white">
+                <h2 class="text-lg  text-white">
+                    <span class="underline">How do I install the latest Maui <br>workload?</span>
+                </h2>
+            </div>
+            
+            <!-- Détails : Réponses, Votes, et Vues (alignés à droite) -->
+            <div class="flex justify-end space-x-6 text-yellow-400 text-sm">
+                <div class="flex flex-col items-center"> 
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <g id="Interface / Check_All_Big"> 
+                                <path id="Vector" d="M7 12L11.9497 16.9497L22.5572 6.34326M2.0498 12.0503L6.99955 17M17.606 6.39355L12.3027 11.6969" stroke="#F3BB00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                            </g> 
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">5 Answers</span>
+                </div>
+                
+                
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier"> 
+                            <path d="M20.498 15.5H3.5V20.5H20.498V15.5ZM21.9445 14.4719L21.9661 14.5336L21.9892 14.6345L21.9981 14.7331V21.25C21.9981 21.6297 21.7159 21.9435 21.3499 21.9932L21.2481 22H2.75C2.3703 22 2.05651 21.7178 2.00685 21.3518L2 21.25V14.7506L2.00184 14.6977L2.01271 14.6122C2.02285 14.5584 2.03841 14.5072 2.05894 14.4587L4.81824 8.44003C4.92517 8.2068 5.14245 8.04682 5.39153 8.01047L5.5 8.0026L8.03982 8.00183L7.25089 9.37206L7.18282 9.50183L5.981 9.502L3.918 13.9998H20.07L18.0428 9.65383L18.9052 8.15653C18.9718 8.20739 19.0301 8.26957 19.0771 8.3411L19.1297 8.43553L21.9445 14.4719ZM13.3652 2.05565L13.4566 2.10062L18.6447 5.10375C18.9729 5.29371 19.1033 5.69521 18.9636 6.03728L18.9187 6.1289L16.112 11.001L17.25 11.0016C17.6642 11.0016 18 11.3374 18 11.7516C18 12.1313 17.7178 12.4451 17.3518 12.4948L17.25 12.5016L15.248 12.501L15.2471 12.504H11.1691L11.166 12.501L6.75 12.5016C6.33579 12.5016 6 12.1658 6 11.7516C6 11.3719 6.28215 11.0581 6.64823 11.0085L6.75 11.0016L8.573 11.001L8.39145 10.8963C8.06327 10.7063 7.93285 10.3048 8.0726 9.96272L8.11747 9.8711L12.4341 2.37536C12.6235 2.04633 13.024 1.91557 13.3652 2.05565ZM13.3559 3.77529L9.78781 9.97119L11.566 11.001H14.383L17.248 6.02818L13.3559 3.77529Z" fill="#F3BB00"></path>
+                    </svg>
+                    <span class="text-xs text-white">5 Votes</span>
+                </div>
+                
+                <div class="flex flex-col items-center">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#F3BB00"></path>
+                        </g>
+                    </svg>
+                    <span class="text-xs text-white">20 Views</span>
+                </div>
+                
+            </div>
+        
+            <!-- Ligne avec le champ de réponse et les icônes -->
+            <div class="flex items-center justify-between space-x-3 mt-2">
+                <!-- Champ de Réponse -->
+                <input type="text" placeholder="Add an answer ..." class="w-60 bg-white bg-opacity-60 text-white px-3 py-2 rounded-[8px] text-xs placeholder-gray-700 focus:outline-none text-center">
+        
+                <!-- Icônes de Commentaire, Favori, et Like -->
+                <div class="flex space-x-2 text-gray-400">
+                    <!-- Icône de Commentaire -->
+<button class="flex items-center">
+    <svg fill="#000000" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier"> 
+            <path d="M1662.178 0v1359.964h-648.703l-560.154 560.154v-560.154H0V0h1662.178ZM1511.07 151.107H151.107v1057.75h453.321v346.488l346.489-346.488h560.154V151.107ZM906.794 755.55v117.53H453.32V755.55h453.473Zm302.063-302.365v117.529H453.32V453.185h755.536Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button> 
+
+<!-- Icône de Favori -->
+<button class="flex items-center text-gray-400 hover:text-yellow-500">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"> <!-- Ajout des classes pour la taille -->
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2ZM15.0103 9.75C14.0403 10.1 13.0203 10.28 12.0003 10.28C10.9803 10.28 9.96031 10.1 8.99031 9.75C8.60031 9.61 8.40031 9.18 8.54031 8.79C8.69031 8.4 9.12031 8.2 9.51031 8.34C11.1203 8.92 12.8903 8.92 14.5003 8.34C14.8903 8.2 15.3203 8.4 15.4603 8.79C15.6003 9.18 15.4003 9.61 15.0103 9.75Z" fill="#FFFFFF"></path>
+        </g>
+    </svg>
+</button>
+
+
+
+
+<!-- Icône de Like -->
+<button class="flex items-center">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#FFFFFF" class="w-5 h-5">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <title>heart-like-solid</title>
+            <g id="Layer_2" data-name="Layer 2">
+                <g id="invisible_box" data-name="invisible box">
+                    <rect width="48" height="48" fill="none"></rect>
+                </g>
+                <g id="icons_Q2" data-name="icons Q2">
+                    <path d="M34,4c-3.9,0-8,3.1-10,6.5C22,7.1,17.9,4,14,4A12,12,0,0,0,5.5,7.6,11.9,11.9,0,0,0,2,16.1c0,4.1,2.7,7.6,5,10.2L23.3,43.7a1,1,0,0,0,1.4,0L41,26.3c2.3-2.6,5-6.1,5-10.2A12.1,12.1,0,0,0,34,4Z"></path>
+                </g>
+            </g>
+        </g>
+    </svg>
+</button>
+
+
+                </div>
+                
+            </div>
+        </div>
+
+    </div>      
+    <!-- Pagination -->
+    <div class="flex items-center space-x-2 mt-5 justify-end w-full">
+        <button class="px-3 py-1 bg-yellow-400 text-black rounded-full">1</button>
+        <button class="px-3 py-1 bg-white text-black rounded-full">2</button>
+        <button class="px-3 py-1 bg-white text-black rounded-full">3</button>
+        <span class="text-gray-400">...</span>
+        <button class="px-3 py-1 bg-white text-black rounded-full">120234</button>
+        <button class="px-4 py-2 bg-yellow-400 text-black rounded-full">Next</button>
+    </div>
+    
+    
+</section>
+<footer class="bg-black text-center py-6 mt-auto">
+    <p class="text-[#F3BB00] text-lg mb-2">Need help?</p>
+    <a href="mailto:votre-email@example.com" class="text-white text-sm mb-4 inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 12.713L.727 5.11C.889 5.042 1.068 5 1.258 5h21.484c.19 0 .369.042.531.11L12 12.713zM0 6.833v11.174c0 .434.351.833.833.833h22.334c.482 0 .833-.399.833-.833V6.833L12 14.713 0 6.833z"/>
+        </svg>
+        support-AskIT@example.com
+    </a>
+    <p class="text-[#F3BB00] text-lg mb-2">Connect with us</p>
+    <div class="flex justify-center space-x-4 mt-2">
+        <!-- Facebook Icon -->
+        <a href="https://facebook.com" target="_blank" class="text-white">
+            <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-6.92H7.5V12h2.5V9.5c0-2.48 1.52-3.8 3.73-3.8 1.06 0 1.97.08 2.24.11v2.6h-1.54c-1.21 0-1.44.58-1.44 1.42V12h2.9l-.46 2.88H13.5V22c4.56-.93 8-4.96 8-9.8z"/>
+            </svg>
+        </a>
+        <!-- X Image -->
+        <a href="https://x.com" target="_blank" class="text-white">
+            <img src="x.png" alt="X Platform" class="w-6 h-6" />
+        </a>
+        <!-- GitHub Icon -->
+        <a href="https://github.com" target="_blank" class="text-white">
+            <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.19 3.35 9.59 8 11.2.58.1.8-.25.8-.56v-2.1c-3.25.7-3.94-1.57-3.94-1.57-.52-1.32-1.28-1.67-1.28-1.67-1.04-.7.08-.68.08-.68 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.6-.3-5.34-1.3-5.34-5.73 0-1.26.47-2.28 1.23-3.08-.13-.3-.54-1.5.12-3.13 0 0 1-.33 3.3 1.25.96-.27 1.98-.4 3-.4s2.04.14 3 .4c2.3-1.58 3.3-1.25 3.3-1.25.66 1.63.25 2.83.12 3.13.76.8 1.23 1.82 1.23 3.08 0 4.44-2.75 5.43-5.37 5.72.42.37.8 1.1.8 2.22v3.28c0 .31.22.67.8.56 4.65-1.61 8-5.99 8-11.19C23.5 5.73 18.27.5 12 .5z"/>
+            </svg>
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>

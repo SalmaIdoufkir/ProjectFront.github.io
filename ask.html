@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASK</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobile-menu");
+            menu.classList.toggle("hidden");
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            const questionContainers = document.querySelectorAll(".question-container");
+            const textareas = document.querySelectorAll(".textarea-field");
+    
+            // Couleurs des conteneurs
+            const colors = {
+                current: "#FDCE1C", // couleur de la question actuelle
+                previous: "#A9EB36", // couleur de la question précédente
+                next: "#D1D1D6" // couleur de la question suivante
+            };
+    
+            // Initialisation des couleurs
+            updateContainerColors(0);
+    
+            questionContainers.forEach((container, index) => {
+                container.addEventListener("click", function() {
+                    // Vérifier si le textarea de la question précédente est rempli
+                    if (index > 0 && textareas[index - 1].value.trim() === "") {
+                        return; // Ne pas passer à la question suivante si la précédente n'est pas remplie
+                    }
+    
+                    // Masquer tous les textareas
+                    textareas.forEach(textarea => {
+                        textarea.classList.add("hidden");
+                    });
+    
+                    // Afficher le textarea de la question cliquée
+                    const textarea = textareas[index];
+                    textarea.classList.remove("hidden");
+    
+                    // Mettre à jour les couleurs des conteneurs
+                    updateContainerColors(index);
+                });
+            });
+    
+            function updateContainerColors(currentIndex) {
+                questionContainers.forEach((container, index) => {
+                    if (index === currentIndex) {
+                        container.style.backgroundColor = colors.current;
+                    } else if (index < currentIndex) {
+                        container.style.backgroundColor = colors.previous;
+                    } else {
+                        container.style.backgroundColor = colors.next;
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body class="font-[Poppins] min-h-screen">
+    <nav class="fixed top-5 left-0 right-0 mx-auto w-[90%] bg-[#D9D9D9] bg-opacity-50 shadow-md backdrop-blur-0 z-50 rounded-[20px] p-2">
+        <div class="container mx-auto px-1.5 py-1.5 flex items-center">
+            <!-- Flèche pour revenir en arrière -->
+            <div class="mr-4 cursor-pointer" onclick="history.back()">
+                <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a1 1 0 0 1-.707-.293l-7-7a1 1 0 0 1 0-1.414l7-7a1 1 0 0 1 1.414 1.414L5.414 9H17a1 1 0 1 1 0 2H5.414l5.293 5.293A1 1 0 0 1 10 18z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+    
+            <!-- Logo -->
+            <div class="mr-auto"><img src="logo.png" alt="Logo" class="h-8 w-auto"></div>
+            
+            <!-- Menu pour les écrans moyens et grands, centré -->
+            <div class="space-x-8 hidden md:flex justify-center flex-1">
+                <a href="index.html" class="text-black hover:text-gray-700 text-lg ">Home</a>
+                <a href="#" class="text-black hover:text-gray-700 text-lg font-semibold">Ask</a>
+                <a href="Tags.html" class="text-black hover:text-gray-700 text-lg">Tags</a>
+                <a href="users.html" class="text-black hover:text-gray-700 text-lg">Users</a>
+                <a href="account.html" class="text-black hover:text-gray-700 text-lg">Account</a>
+            </div>
+            
+            <!-- Icône de notification -->
+            <div class="md:ml-4 ml-[60%] cursor-pointer">
+                <svg class="w-6 h-6 text-black" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2c3.7857 0 6.8693 3.0048 6.9961 6.7594v3.0045l1.822 3.6441c.3483.6966-.1175 1.5103-.869 1.5862H4.16197c-.7788 0-1.2983-.7805-1.0301-1.4867l1.8221-3.644v-3.0046C5.131 5.134 8.134 2 12 2zM13 21h-2c-1.0544 0-1.9182-.9182-1.9945-1.949L9 19h6c0 1.0544-.8182 1.9182-1.9495 1.9945L13 21z"/>
+                </svg>
+            </div>
+    
+            <!-- Bouton pour Mobile -->
+            <div class="md:hidden flex items-center ml-auto">
+                <button onclick="toggleMenu()" class="text-black focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    
+        <!-- Menu déroulant pour mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 shadow-md rounded-b-lg p-4 space-y-4">
+            <a href="index.html" class="block text-black hover:text-gray-700 text-lg ">Home</a>
+            <a href="#" class="block text-black hover:text-gray-700 text-lg font-semibold">Ask</a>
+            <a href="Tags.html" class="block text-black hover:text-gray-700 text-lg">Tags</a>
+            <a href="users.html" class="block text-black hover:text-gray-700 text-lg">Users</a>
+            <a href="account.html" class="block text-black hover:text-gray-700 text-lg">Account</a>
+        </div>
+    </nav>
+    
+    <div class="relative mt-16 flex-grow">
+        <h1 class="lg:text-4xl sm:text-2xl text-black font-bold ml-7 mt-[120px]" style="font-family: 'Bayon', sans-serif;">ASK YOUR QUESTION</h1>
+        <div class="bg-[#FFCA0883] h-[100px] flex justify-center items-center w-full">
+            <p class="text-black w-[80%] md:text-lg text-sm font-bold" style="font-family: 'Poppins', sans-serif;">
+                Explain how you encountered the problem you’re trying to solve, and any difficulties that have prevented you from solving it yourself.
+            </p>
+        </div>
+        <main class="flex flex-col  items-center relative mt-8">
+            <div class="relative w-full flex justify-center items-start min-h-[calc(100vh-20rem)]">
+                <div class="absolute top-0 bg-[url('Rect.png')] bg-no-repeat bg-cover w-full h-full -z-10" style="background-position: top center;"></div>
+                <div class="bg-[#FDCE1C1E] p-8 mb-11 relative z-10 rounded-[20px] shadow-md w-[90%] md:w-[70%] ">
+                    <form id="questionForm" class="space-y-2 w-full">
+                        <!-- Champs de question -->
+                        <div class="bg-white p-4 rounded-[20px] shadow-md w-full transition-all duration-300 question-container cursor-pointer" data-index="0">
+                            <label for="textarea1" class="text-white font-bold block">Title</label>
+                            <textarea id="textarea1" class="textarea-field hidden w-full p-2 mt-2 rounded-md bg-gray-100" placeholder="Additional details"></textarea>
+                        </div>
+                        <div class="bg-white p-4 rounded-[20px] shadow-md w-full transition-all duration-300 question-container cursor-pointer" data-index="1">
+                            <label for="textarea2" class="text-gray-600 block">What are the details of your problem?</label>
+                            <textarea id="textarea2" class="textarea-field hidden w-full p-2 mt-2 rounded-md bg-gray-100" placeholder="Additional details"></textarea>
+                        </div>
+                        <div class="bg-white p-4 rounded-[20px] shadow-md w-full transition-all duration-300 question-container cursor-pointer" data-index="2">
+                            <label for="textarea3" class="text-gray-600 block">What did you try and what were you expecting?</label>
+                            <textarea id="textarea3" class="textarea-field hidden w-full p-2 mt-2 rounded-md bg-gray-100" placeholder="Additional details"></textarea>
+                        </div>
+                        <div class="bg-white p-4 rounded-[20px] shadow-md w-full transition-all duration-300 question-container cursor-pointer" data-index="3">
+                            <label for="textarea4" class="text-gray-600 block">Tags</label>
+                            <textarea id="textarea4" class="textarea-field hidden w-full p-2 mt-2 rounded-md bg-gray-100" placeholder="Additional details"></textarea>
+                        </div>
+                        <div class="flex justify-between mt-4">
+                            <button type="button" class="bg-[#D1D1D6] text-gray-500 font-bold py-2 px-4 rounded-md shadow hover:bg-[#A9EB36]  transition duration-300">Cancel</button>
+                            <button type="submit" class="bg-[#D1D1D6] text-gray-500 font-bold py-2 px-4 rounded-md shadow hover:bg-[#FDCE1C] transition duration-300">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="bg-black text-center py-6 mt-auto">
+        <p class="text-[#F3BB00] text-lg mb-2">Need help?</p>
+        <a href="mailto:votre-email@example.com" class="text-white text-sm mb-4 inline-flex items-center">
+            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12.713L.727 5.11C.889 5.042 1.068 5 1.258 5h21.484c.19 0 .369.042.531.11L12 12.713zM0 6.833v11.174c0 .434.351.833.833.833h22.334c.482 0 .833-.399.833-.833V6.833L12 14.713 0 6.833z"/>
+            </svg>
+            support-AskIT@example.com
+        </a>
+        <p class="text-[#F3BB00] text-lg mb-2">Connect with us</p>
+        <div class="flex justify-center space-x-4 mt-2">
+            <!-- Facebook Icon -->
+            <a href="https://facebook.com" target="_blank" class="text-white">
+                <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-6.92H7.5V12h2.5V9.5c0-2.48 1.52-3.8 3.73-3.8 1.06 0 1.97.08 2.24.11v2.6h-1.54c-1.21 0-1.44.58-1.44 1.42V12h2.9l-.46 2.88H13.5V22c4.56-.93 8-4.96 8-9.8z"/>
+                </svg>
+            </a>
+            <!-- X Image -->
+            <a href="https://x.com" target="_blank" class="text-white">
+                <img src="x.png" alt="X Platform" class="w-6 h-6" />
+            </a>
+            <!-- GitHub Icon -->
+            <a href="https://github.com" target="_blank" class="text-white">
+                <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.19 3.35 9.59 8 11.2.58.1.8-.25.8-.56v-2.1c-3.25.7-3.94-1.57-3.94-1.57-.52-1.32-1.28-1.67-1.28-1.67-1.04-.7.08-.68.08-.68 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.53-2.6-.3-5.34-1.3-5.34-5.73 0-1.26.47-2.28 1.23-3.08-.13-.3-.54-1.5.12-3.13 0 0 1-.33 3.3 1.25.96-.27 1.98-.4 3-.4s2.04.14 3 .4c2.3-1.58 3.3-1.25 3.3-1.25.66 1.63.25 2.83.12 3.13.76.8 1.23 1.82 1.23 3.08 0 4.44-2.75 5.43-5.37 5.72.42.37.8 1.1.8 2.22v3.28c0 .31.22.67.8.56 4.65-1.61 8-5.99 8-11.19C23.5 5.73 18.27.5 12 .5z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
+    
+    
+    
+    
+</body>
+</html>
